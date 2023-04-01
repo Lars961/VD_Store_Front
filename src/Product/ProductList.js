@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom'
 
-export default function Home() {
+export const  ProductList=() => {
 
     const [product, setproduct] = useState([])
 
