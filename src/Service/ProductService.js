@@ -16,8 +16,8 @@ export const loadproduct = async () => {
 }
 
 
-export const createproduct = async () => {
-    const newProduct = await axiosInstance.post('http://localhost:8080/product/new')
+export const createproduct = async (product) => {
+    const newProduct = await axiosInstance.post('http://localhost:8080/product/product/new', product)
     console.log(newProduct);
     return newProduct;
     //setproduct(product.data);
