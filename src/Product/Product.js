@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { createproduct} from '../Service/ProductService';
-
+import {useNavigate} from  'react-router-dom'
 
 
 export const  Product=() => {
@@ -12,6 +12,9 @@ export const  Product=() => {
     const [brand,setBrand] = useState("")
     const [type,setType] = useState("")
     const [description,setDescription] = useState("")
+
+      const navigate = useNavigate()
+         
 
     //2. Creamos los eventos de mis campos a asignar
 const nameAction = (event) =>{
@@ -37,7 +40,7 @@ const descriptionAction = (event) =>{
     console.log(event.target.value);
     setDescription(event.target.value);
 }
-//Generamos el objeto a guardar
+//3. Generamos el objeto a guardar
 const createAction = (event/*  name, brand, type, description*/) =>{
    event.preventDefault();
     const product = {
@@ -48,6 +51,7 @@ const createAction = (event/*  name, brand, type, description*/) =>{
     }
     createproduct(product).then(result =>{
         console.log(result)
+        navigate("/")
     })
 }
     return (
@@ -59,6 +63,7 @@ const createAction = (event/*  name, brand, type, description*/) =>{
             'hello product!'
                 <div class= "border-1 text-start form-group">
                     <label for = "inputName col-md-6  ">Name</label>
+                    {/* onChange sirve para asignar la accion al campo y asignamos el valor de nuestro estado*/ }
                     <input type="for-label" class="form-control" id="inputName" placeholder="" onChange={nameAction}/>
                 </div>
                 <div class= "text-start form-group">
