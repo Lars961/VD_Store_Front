@@ -17,11 +17,26 @@ export const loadproduct = async () => {
 
 
 export const createproduct = async (product) => {
-    const newProduct = await axiosInstance.post('http://localhost:8080/product/product/new', product)
-    console.log(newProduct);
-    return newProduct;
+    const result = await axiosInstance.post('http://localhost:8080/product/product/new', product)
+    console.log(result);
+    return result;
     //setproduct(product.data);
     //console.log(product);
+}
+
+export const editproduct = async(productId, product) => {
+    const result = await axiosInstance.put('http://localhost:8080/product/' + productId, product)
+    console.log(result);
+    return result;
+
+}
+
+export const getproduct = async (id) => {
+    console.log('getproduct' + id);
+    const result = await axios.get('http://localhost:8080/product/'+ id)
+    
+    //loadproduct()
+    return result;
 }
 
 

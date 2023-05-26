@@ -64,16 +64,16 @@ export const  ProductList=() => {
 
                         {
                             products.map((product, index) => (
-                                <tr>
+                                <tr key={"row"+index}>
                                     <th scope="row" key={index}>{index + 1}</th>
                                     <td>{product.idProduct}</td>
                                     <td>{product.name}</td>
                                     <td>{product.brand}</td>
-                                    <td>{product.type}</td>
+                                    <td>{product.productType}</td>
                                     <td>{product.description}</td>
                                     <td>
-                                        <Link type="button" className="btn btn-outline-primary mx-2" to={`/viewproduct/${product.idProduct}`}>View</Link>
-                                        <Link type="button" className="btn btn-outline-warning mx-2" to={`/editproduct/${product.idProduct}`}>Edit</Link>
+                                        <Link type="button" className="btn btn-outline-primary mx-2" to={`/product/${product.idProduct}`}>View</Link>
+                                        <Link type="button" className="btn btn-outline-warning mx-2" to={`/editProduct/${product.idProduct}`}>Edit</Link>
                                         <button className="btn btn-outline-danger mx-2" onClick={() => deleteAction(product.idProduct)}>Delete</button>
                                     </td>
                                 </tr>
